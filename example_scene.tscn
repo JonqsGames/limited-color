@@ -1,0 +1,261 @@
+[gd_scene load_steps=26 format=3 uid="uid://bmfxjfxi816x8"]
+
+[ext_resource type="PackedScene" uid="uid://ho4iokqr5br8" path="res://addons/limited_color/post_process.tscn" id="1_axvw4"]
+[ext_resource type="Script" path="res://addons/limited_color/mesh_colored.gd" id="1_k158w"]
+[ext_resource type="Shader" path="res://addons/limited_color/shaders/default_mesh_colored.gdshader" id="3_cgthk"]
+[ext_resource type="PackedScene" uid="uid://ca0ajhxcwrogc" path="res://kenney_food/apple.glb" id="5_dinro"]
+[ext_resource type="PackedScene" uid="uid://cwrpqw03nju6y" path="res://kenney_food/avocadoHalf.glb" id="6_1ofyw"]
+[ext_resource type="PackedScene" uid="uid://bvfc4fol0qj8x" path="res://kenney_food/bottleKetchup.glb" id="7_hex2d"]
+[ext_resource type="PackedScene" uid="uid://cta7opn432bn2" path="res://kenney_food/bottleOil.glb" id="8_rlsco"]
+[ext_resource type="PackedScene" uid="uid://csb4de5hm8g64" path="res://kenney_food/bread.glb" id="9_hj7ts"]
+[ext_resource type="PackedScene" uid="uid://b37jku88na7k5" path="res://kenney_food/broccoli.glb" id="10_jq7ck"]
+[ext_resource type="PackedScene" uid="uid://cf4gj216ajd3s" path="res://kenney_food/cabbage.glb" id="11_2j80g"]
+[ext_resource type="PackedScene" uid="uid://ggrmtllqk53n" path="res://kenney_food/candyBar.glb" id="12_k47s0"]
+[ext_resource type="PackedScene" uid="uid://5vyoh4m5vu3k" path="res://kenney_food/carrot.glb" id="13_op2r4"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_y4ubh"]
+
+[sub_resource type="Sky" id="Sky_slovy"]
+sky_material = SubResource("ProceduralSkyMaterial_y4ubh")
+
+[sub_resource type="Environment" id="Environment_vj1vv"]
+background_mode = 1
+sky = SubResource("Sky_slovy")
+ambient_light_source = 2
+ambient_light_color = Color(1, 0.572549, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_2wxfo"]
+radial_segments = 8
+rings = 4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eexc2"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("3_cgthk")
+shader_parameter/color_id = 7.0
+shader_parameter/mesh_id = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tdut3"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("3_cgthk")
+shader_parameter/color_id = 3.0
+shader_parameter/mesh_id = 2.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xpda3"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("3_cgthk")
+shader_parameter/color_id = 0.0
+shader_parameter/mesh_id = 3.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bbrdb"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("3_cgthk")
+shader_parameter/color_id = 5.0
+shader_parameter/mesh_id = 4.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vtlgi"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("3_cgthk")
+shader_parameter/color_id = 8.0
+shader_parameter/mesh_id = 5.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c11fk"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("3_cgthk")
+shader_parameter/color_id = 2.0
+shader_parameter/mesh_id = 6.0
+
+[sub_resource type="Animation" id="Animation_bm720"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node3D2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CameraPivot:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_tga8n"]
+resource_name = "rotator"
+length = 6.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/path = NodePath("Node3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 6, 12),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 6.28319, 0), Vector3(0, -6.28319, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath("Node3D2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 6, 12),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 1, 0), Vector3(-10, 1, 0), Vector3(0, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CameraPivot:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2.9, 6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.872665, 0, 0), Vector3(-0.872665, 0, 0.872665)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b1qm7"]
+_data = {
+"RESET": SubResource("Animation_bm720"),
+"rotator": SubResource("Animation_tga8n")
+}
+
+[node name="Node3D" type="Node3D"]
+
+[node name="CameraPivot" type="Node3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
+environment = SubResource("Environment_vj1vv")
+
+[node name="PostProcess" parent="CameraPivot/Camera3D" instance=ExtResource("1_axvw4")]
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+visible = false
+
+[node name="MeshColored" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.72254, 1.1058, 0.0913286)
+mesh = SubResource("SphereMesh_2wxfo")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_eexc2")
+script = ExtResource("1_k158w")
+color_id = [7]
+
+[node name="MeshColored2" type="MeshInstance3D" parent="Node3D"]
+mesh = SubResource("SphereMesh_2wxfo")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_tdut3")
+script = ExtResource("1_k158w")
+color_id = [3]
+
+[node name="MeshColored3" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+mesh = SubResource("SphereMesh_2wxfo")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_xpda3")
+script = ExtResource("1_k158w")
+color_id = [0]
+
+[node name="Node3D2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+visible = false
+
+[node name="MeshColored" type="MeshInstance3D" parent="Node3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0)
+mesh = SubResource("SphereMesh_2wxfo")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_bbrdb")
+script = ExtResource("1_k158w")
+color_id = [5]
+
+[node name="MeshColored2" type="MeshInstance3D" parent="Node3D2"]
+mesh = SubResource("SphereMesh_2wxfo")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_vtlgi")
+script = ExtResource("1_k158w")
+color_id = [8]
+
+[node name="MeshColored3" type="MeshInstance3D" parent="Node3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+mesh = SubResource("SphereMesh_2wxfo")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_c11fk")
+script = ExtResource("1_k158w")
+color_id = [2]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.47587, 0.879516, 0, -0.879516, 0.47587, -1.22491, 1.90372, 0.976862)
+light_energy = 0.5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_b1qm7")
+}
+autoplay = "rotator"
+
+[node name="Food" type="Node3D" parent="."]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, 0)
+
+[node name="apple2" parent="Food" instance=ExtResource("5_dinro")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.381862, 0, 0)
+
+[node name="avocadoHalf2" parent="Food" instance=ExtResource("6_1ofyw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.418339, 0, 0)
+
+[node name="bottleKetchup2" parent="Food" instance=ExtResource("7_hex2d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.339009, -0.346385, 0)
+
+[node name="bottleOil2" parent="Food" instance=ExtResource("8_rlsco")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.276486, 0.239211, 0)
+
+[node name="bread2" parent="Food" instance=ExtResource("9_hj7ts")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.762688)
+
+[node name="broccoli2" parent="Food" instance=ExtResource("10_jq7ck")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.388071, 0.237646, 0)
+
+[node name="cabbage2" parent="Food" instance=ExtResource("11_2j80g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.373113, -0.469449, 0)
+
+[node name="candyBar2" parent="Food" instance=ExtResource("12_k47s0")]
+transform = Transform3D(1, 0, 0, 0, 0.511458, -0.859308, 0, 0.859308, 0.511458, 0.788253, 0, 0)
+
+[node name="carrot2" parent="Food" instance=ExtResource("13_op2r4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.909695, 0, 0)

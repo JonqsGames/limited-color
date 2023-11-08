@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://ho4iokqr5br8"]
+
+[ext_resource type="Shader" path="res://addons/limited_color/shaders/post_process_quad.gdshader" id="1_5kr2w"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_384pa"]
+render_priority = 0
+shader = ExtResource("1_5kr2w")
+
+[sub_resource type="QuadMesh" id="QuadMesh_7xcuk"]
+material = SubResource("ShaderMaterial_384pa")
+flip_faces = true
+size = Vector2(2, 2)
+
+[node name="PostProcess" type="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 0.944043, 0.329822, 0, -0.329822, 0.944043, 0, 1.53072, 0)
+cast_shadow = 0
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_7xcuk")

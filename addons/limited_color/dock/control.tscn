@@ -1,0 +1,73 @@
+[gd_scene load_steps=4 format=3 uid="uid://bkvuyq3crhw2q"]
+
+[ext_resource type="Script" path="res://addons/limited_color/dock/MainPluginDock.gd" id="1_gamgs"]
+[ext_resource type="Texture2D" uid="uid://cmntacq38gj2f" path="res://addons/limited_color/default_tex/resurrect-64-1x.png" id="2_3mjjl"]
+[ext_resource type="Texture2D" uid="uid://ftwh4gedwq4x" path="res://test_palettes/bayer16.png" id="3_sd5f8"]
+
+[node name="LimitedColor" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gamgs")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+alignment = 1
+
+[node name="FileDialog" type="FileDialog" parent="VBoxContainer"]
+title = "Open a File"
+initial_position = 2
+size = Vector2i(312, 312)
+ok_button_text = "Open"
+file_mode = 0
+filters = PackedStringArray("*.png")
+use_native_dialog = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+
+[node name="PaletteTex" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(64, 8)
+layout_mode = 2
+tooltip_text = "Click to change oalette"
+texture = ExtResource("2_3mjjl")
+expand_mode = 4
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Palette"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+
+[node name="BayerTex" type="TextureRect" parent="VBoxContainer/HBoxContainer2"]
+texture_filter = 1
+custom_minimum_size = Vector2(64, 8)
+layout_mode = 2
+tooltip_text = "Click to change bayer matrix"
+texture = ExtResource("3_sd5f8")
+expand_mode = 4
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Bayer"
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Save
+"
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="file_selected" from="VBoxContainer/FileDialog" to="." method="_on_file_dialog_file_selected"]
+[connection signal="gui_input" from="VBoxContainer/HBoxContainer/PaletteTex" to="." method="_on_texture_rect_gui_input"]
+[connection signal="gui_input" from="VBoxContainer/HBoxContainer2/BayerTex" to="." method="_on_bayer_tex_gui_input"]
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]

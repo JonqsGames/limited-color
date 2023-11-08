@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bohdrorjb34q4"]
+
+[ext_resource type="Shader" path="res://addons/limited_color/shaders/default_mesh_colored.gdshader" id="1_f2h5n"]
+
+[resource]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("1_f2h5n")
+shader_parameter/color_id = 14.0
+shader_parameter/mesh_id = 6.0
