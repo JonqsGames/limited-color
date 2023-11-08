@@ -1,4 +1,6 @@
 # Limited Color
+<img src="https://github.com/JonqsGames/limited-color/assets/6182189/09de0a9c-8cdc-4e5a-8489-82001a02675d" width="450">
+<img src="https://github.com/JonqsGames/limited-color/assets/6182189/465157b2-2d8b-4f62-a98a-cf073e1f6a95" width="450">
 
 A plugin to create 3D project with a limited color palette
 
